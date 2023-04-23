@@ -4,9 +4,9 @@ K8s_Autodeploy
 This repository is based on the following structure
 
 
- - Vagrantfile -> The file used to automatically spin up 3 VMs using the vbox driver
-|
-|
+ - Vagrantfile -> The file used to automatically spin up 3 VMs using the vbox driver<br/>
+|<br/>
+|<br/>
 - ansible/* -> This directory contains all the roles and playbooks used to provision the cluster
 
 Vagrantfile
