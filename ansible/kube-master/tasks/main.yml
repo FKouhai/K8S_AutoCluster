@@ -1,0 +1,20 @@
+---
+- name: Pulling k8s images
+  import_tasks: image_pull.yaml
+- name: Error Handling
+  block:
+    - name: Init Cluster
+      import_tasks: cluster_init.yaml
+    - name: Getting the join script
+      import_tasks: token-fetch.yaml
+  rescue:
+    - name: Resetting cluster in case of previous failure
+      become: true
+      become_method: sudo
+      shell: "kubeadm reset -f"
+    - name:
+      debug:
+        msg: "Please check out the error could be dns or a variable not set correctly"
+
+# tasks file for kube-master
+

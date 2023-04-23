@@ -1,0 +1,6 @@
+- name: Getting the CoreDNS pods name
+  shell: 'kubectl get po -n kube-system | grep coredns | cut -f 1 -d " " '
+  register: pods
+- name: Rescheduling the CoreDNS pods
+  shell: "kubectl delete po -n kube-system {{ item }}"
+  with_items: "{{ pods.stdout }}"

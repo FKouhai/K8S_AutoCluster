@@ -1,0 +1,2 @@
+- name: Installing K9S
+  shell: "wget https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz && tar xfzv k9s_Linux_amd64.tar.gz && sudo mv k9s /usr/local/bin/ && rm *.tar.gz && rm LICENSE && rm README.md"

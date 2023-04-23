@@ -1,0 +1,5 @@
+.vagrant
+ansible/inventory
+ansible/common-dns/*
+ansible/common-dns.yaml
+ansible/test.yaml

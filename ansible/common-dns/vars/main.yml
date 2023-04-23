@@ -1,0 +1,5 @@
+---
+primaryDNS: 1.1.1.1
+secondaryDNS: 8.8.8.8
+domain: cluster.local
+# vars file for common-dns

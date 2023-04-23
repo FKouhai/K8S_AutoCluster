@@ -1,0 +1,10 @@
+---
+- name: Setting up hostname 
+  import_tasks: setHostname.yaml
+  tags: never
+- name: Setting up resolv.conf 
+  import_tasks: resolv.yaml
+  tags: never
+- name: Setting up /etc/hosts 
+  import_tasks: hosts.yaml
+# tasks file for hosts.yamlcommon-dns

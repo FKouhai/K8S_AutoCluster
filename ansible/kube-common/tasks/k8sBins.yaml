@@ -1,0 +1,9 @@
+- name: Installing kubernetes components
+  apt:
+    name:
+      - kubelet
+      - kubeadm
+      - kubectl
+    state: present
+- name: Pinning k8s current version
+  shell: "sudo apt-mark hold kubelet kubeadm kubectl"

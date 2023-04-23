@@ -1,0 +1,8 @@
+- name: Unlinking resolv.conf 
+  shell: sudo unlink /etc/resolv.conf
+- name: Propagating new resolv.conf 
+  template:
+    src: ../templates/resolv.conf.j2
+    dest: /etc/resolv.conf 
+    owner: root
+    mode: '0655'

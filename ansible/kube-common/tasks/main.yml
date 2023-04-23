@@ -1,0 +1,14 @@
+- name:
+  import_tasks: basePackages.yaml
+- name:
+  import_tasks: disableSwap.yaml
+- name:
+  import_tasks: containerPkgs.yaml
+- name:
+  import_tasks: containerd.yaml
+- name: 
+  import_tasks: k8sRepo.yaml
+- name: 
+  import_tasks: k8sBins.yaml
+- name: 
+  import_tasks: enableDepens.yaml

@@ -1,0 +1,8 @@
+---
+- name:
+  import_tasks: cniDeploy.yaml
+- name: 
+  import_tasks: redeployCoreDNS.yaml
+- name: 
+  import_tasks: installK9S.yaml
+# tasks file for kcniDeploy.yamlube-postconf

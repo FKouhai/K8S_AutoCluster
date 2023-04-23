@@ -1,0 +1,4 @@
+- name: Creating default config
+  shell: "containerd config default | sudo tee /etc/containerd/config.toml"
+- name: Enabling the systemd cgroup drivers
+  shell: 'sed -i "s/SystemdCgroup \= false/SystemdCgroup \= true/g" /etc/containerd/config.toml && sed -i "s/systemdcgroup \=false/systemdCgroup \=true/g" /etc/containerd/config.toml'
