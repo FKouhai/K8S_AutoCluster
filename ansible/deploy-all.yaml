@@ -1,0 +1,19 @@
+- hosts: all
+  tasks:
+   - import_role:
+       name: kube-common/
+---
+- hosts: master
+  tasks:
+   - import_role:
+       name: kube-master/
+---
+- hosts: worker
+  tasks:
+   - import_role:
+       name: kube-worker/
+---
+- hosts: master
+  tasks:
+   - import_role:
+       name: kube-postconf/

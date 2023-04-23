@@ -1,0 +1,15 @@
+- name: Enabling kernel modules
+  become: true
+  become_method: sudo
+  modprobe:
+    name: "{{ item }}"
+    state: present
+    persistent: present
+  loop: "{{ modules }}"
+- name: Enabling ipv4 forwarding
+  become: true
+  become_method: sudo
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    state: present

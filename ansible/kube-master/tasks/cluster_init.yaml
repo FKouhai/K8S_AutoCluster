@@ -1,0 +1,17 @@
+- name: Init Cluster on master node
+  become_method: sudo
+  become: true
+  shell: "kubeadm init --pod-network-cidr={{ podCIDR }} --apiserver-advertise-address={{ apiAddr }}"
+- name: Creating .kube directory
+  file:
+    state: directory
+    path: /home/{{ ansible_user }}/.kube
+- name: Copying kubeconfig
+  become_method: sudo
+  become: true
+  copy:
+    remote_src: true
+    src: /etc/kubernetes/admin.conf 
+    dest: /home/{{ ansible_user }}/.kube/config 
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

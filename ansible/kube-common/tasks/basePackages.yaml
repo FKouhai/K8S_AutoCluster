@@ -1,0 +1,15 @@
+- name: Updating repos
+  apt:
+    update_cache: true
+- name: dist upgrade
+  apt:
+    upgrade: dist
+- name: Installing common tools
+  apt:
+    state: present
+    name:
+     - vim
+     - curl
+     - ca-certificates
+     - gnupg
+     - lsb-release

@@ -1,0 +1,5 @@
+- hosts: worker
+  tasks:
+   - import_role:
+       name: /mnt/vagrant/ansible/kube-worker/ 
+

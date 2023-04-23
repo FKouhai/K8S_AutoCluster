@@ -1,0 +1,11 @@
+---
+- name: Error handling
+  block:
+    - name: Importing tasks
+      import_tasks: join-worker.yaml
+  rescue:
+    - name: Resetting cluster prep
+      become: true
+      become_method: sudo
+      shell: "kubeadm reset -f"
+# tasks file for kube-worker

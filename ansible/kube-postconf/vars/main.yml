@@ -1,0 +1,3 @@
+---
+podCIDR: "10.244.0.0/16"
+# vars file for kube-postconf

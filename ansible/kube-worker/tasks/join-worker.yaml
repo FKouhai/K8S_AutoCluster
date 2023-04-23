@@ -1,0 +1,13 @@
+- name: Copying join script
+  copy:
+    src: /tmp/token.sh
+    dest: /tmp/ 
+    mode: a+x
+- name: Running the script to join the cluster
+  become: true
+  become_method: sudo
+  shell: "/tmp/token.sh"
+- name: Removign temp file
+  file:
+    path: /tmp/token.sh
+    state: absent

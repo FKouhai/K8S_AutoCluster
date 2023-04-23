@@ -1,0 +1,13 @@
+- name: Fetching docker gpg
+  shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg"
+- name: Including docker repos
+  shell: 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list'
+- name: Installing containerd
+  apt:
+    update_cache: yes
+    name: containerd
+- name: Enabling containerd unit
+  systemd:
+    name: containerd.service
+    state: started
+    enabled: yes

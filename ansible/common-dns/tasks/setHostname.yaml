@@ -1,0 +1,4 @@
+- name: Setting up hostname
+  hostname:
+    name: "{{ hostvars[inventory_hostname].node_name }}"
+

@@ -1,0 +1,7 @@
+- name: Getting join token
+  shell: "echo '#! /bin/bash' > /tmp/token.sh && kubeadm token create --print-join-command >> /tmp/token.sh " 
+- name: Fetch the join token to the local machine
+  fetch:
+    src: /tmp/token.sh 
+    dest: /tmp/
+    flat: true

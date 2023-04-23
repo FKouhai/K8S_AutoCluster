@@ -1,0 +1,9 @@
+- name: Deploying calico CNI
+  shell: "kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml"
+  tags: never
+- name: Copy CRD yaml to master
+  template:
+    src: ../templates/custom-resources.yaml.j2
+    dest: /tmp/calico-crd.yaml
+- name: Apply Calico's CRD for with our pod cidr
+  shell: "kubectl apply -f /tmp/calico-crd.yaml"
